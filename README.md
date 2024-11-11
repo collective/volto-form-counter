@@ -1,6 +1,38 @@
 # volto-form-counter
 
-## Introduction
+## Description
+
+Extra addon for [volto-form-block](https://github.com/collective/volto-form-block),
+It adds a widget to show a progressive number of requests made by users on forms and there is a reset button to clear the number of counter.
+
+It's required [collective.formsupport.counter](https://github.com/collective/collective.formsupport.counter)
+
+Install with
+
+```bash
+yarn add volto-form-counter
+```
+
+## Features
+
+Widget in the sidebar
+
+<img alt="Form counter" src="./docs/counter_widget.png" width="400" />
+
+Error if reset fails
+
+<img alt="Form counter error" src="./docs/counter_widget_error.png" width="400" />
+
+Csv export if counter is active
+
+<img alt="Form counter csv" src="./docs/counter_widget_csv.png" width="400" />
+
+
+## Attention!!
+
+For now the widget works correctly only if there is only one form on the page.
+Issue open [here](https://github.com/collective/volto-form-block/issues/121) on the form block.
+
 
 ## Development
 

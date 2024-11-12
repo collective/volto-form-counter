@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2024-11-11T16:21:10.674Z\n"
+"POT-Creation-Date: 2024-11-12T23:20:09.082Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "counter_widget_check"
 msgstr ""
 
-#. Default: "Se attivo verrà assegnato un numero identificativo per ogni richiesta effettuata dal form."
+#. Default: "Se attivo verrà assegnato un numero identificativo per ogni richiesta effettuata dal form. Se vuoi inserire il valore del contatore negli altri campi del blocco, utilizza la sintassi ${form_counter_form_counter}."
 #: index
 msgid "counter_widget_check_description"
 msgstr ""

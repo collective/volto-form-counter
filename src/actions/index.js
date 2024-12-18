@@ -1,4 +1,4 @@
-import { expandToBackendURL } from '@plone/volto/helpers';
+// import { expandToBackendURL } from '@plone/volto/helpers';
 
 /**
  * resetCounter action
@@ -6,14 +6,15 @@ import { expandToBackendURL } from '@plone/volto/helpers';
  */
 export const RESET_COUNTER = 'RESET_COUNTER';
 
-export function resetCounter({ path }) {
-  const pagePath = expandToBackendURL(path);
+export function resetCounter({ path, value }) {
+  // const pagePath = expandToBackendURL(path);
 
   return {
     type: RESET_COUNTER,
     request: {
       op: 'patch',
-      path: `${path}@reset-counter`,
+      path: `${path}/@reset-counter`,
+      data: { counter_value: value },
     },
   };
 }

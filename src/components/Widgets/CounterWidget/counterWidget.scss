@@ -1,0 +1,23 @@
+.counter-widget {
+    .wrapper-widget {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+
+        p {
+            width: 55%;
+        }
+
+        .ui.button {
+            margin-bottom: 1rem !important;
+            margin-left: 0.8rem;
+            text-align: center;
+            width: 38%;
+        }
+
+        .ui.message {
+            width: 100%;
+            display: flex;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2024-12-10T14:16:13.396Z\n"
+"POT-Creation-Date: 2024-12-18T10:47:50.298Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -23,9 +23,19 @@ msgstr ""
 msgid "counter_widget_check_description"
 msgstr ""
 
-#. Default: "Siamo spiacenti, il contatore non è stato correttamente azzerato! Riprovare più tardi."
+#. Default: "Siamo spiacenti, il contatore non è stato correttamente impostato! Riprovare più tardi."
 #: components/Widgets/CounterWidget/CounterWidget
 msgid "counter_widget_counter_error"
+msgstr ""
+
+#. Default: "Imposta"
+#: components/Widgets/CounterWidget/CounterWidget
+msgid "counter_widget_counter_set_label"
+msgstr ""
+
+#. Default: "Impostazione del contatore confermata."
+#: components/Widgets/CounterWidget/CounterWidget
+msgid "counter_widget_counter_success"
 msgstr ""
 
 #. Default: "Numero di richieste"

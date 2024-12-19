@@ -1,7 +1,10 @@
 import CounterWidget from 'volto-form-counter/components/Widgets/CounterWidget/CounterWidget';
 import { composeSchema } from '@plone/volto/helpers';
 import { defineMessages, useIntl } from 'react-intl';
-import { resetCounterState } from 'volto-form-counter/reducers';
+import {
+  resetCounterState,
+  counterValueState,
+} from 'volto-form-counter/reducers';
 
 const messages = defineMessages({
   counter_widget_check: {
@@ -51,6 +54,7 @@ const applyConfig = (config) => {
   config.addonReducers = {
     ...config.addonReducers,
     resetCounterState,
+    counterValueState,
   };
 
   return config;

@@ -3,8 +3,7 @@ import { defineMessages, useIntl } from 'react-intl';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { Button, Grid, Input } from 'semantic-ui-react';
-import { resetCounter } from 'volto-form-counter/actions';
-import { getFormData } from 'volto-form-block/actions';
+import { resetCounter, getCounterValue } from 'volto-form-counter/actions';
 import { getBaseUrl } from '@plone/volto/helpers';
 import { Icon } from '@plone/volto/components';
 import checkSVG from '@plone/volto/icons/check.svg';
@@ -42,27 +41,24 @@ const CounterWidget = (props) => {
   const location = useLocation();
   const dispatch = useDispatch();
 
-  const formData = useSelector((state) => state.formData);
-  const formCounter = formData?.result?.form_counter ?? 0;
   const resetCounterState = useSelector((state) => state.resetCounterState);
+  const counterState = useSelector((state) => state.counterValueState);
+  const counterValue = counterState?.result?.counter_value ?? 0;
 
   const [showNotify, setShowNotify] = useState(false);
   const [notifyError, setNotifyError] = useState(false);
   const [notifySuccess, setNotifySuccess] = useState(false);
   const [counterInput, setCounterInput] = useState(null);
 
-  const reloadFormData = () => {
-    dispatch(
-      getFormData({
-        path: getBaseUrl(location?.pathname || ''),
-      }),
-    );
-  };
-
   useEffect(() => {
     if (resetCounterState?.loaded && !resetCounterState?.error) {
-      reloadFormData();
       setNotifySuccess(true);
+      // get counter value
+      dispatch(
+        getCounterValue({
+          path: getBaseUrl(location?.pathname || ''),
+        }),
+      );
     }
 
     if (resetCounterState?.error) {
@@ -80,11 +76,11 @@ const CounterWidget = (props) => {
 
   // initialized form counter input
   useEffect(() => {
-    if (formCounter) {
-      setCounterInput(formCounter);
+    if (counterValue) {
+      setCounterInput(counterValue);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formCounter]);
+  }, [counterValue]);
 
   return (
     <Grid.Row className="counter-widget">
@@ -134,14 +130,8 @@ const CounterWidget = (props) => {
           </div>
         )}
 
-        {/* {formCounter > 0 && (
+        {/* {counterValue > 0 && (
           <>
-            {/* ERROR RESET NOTIFY
-            {notifyError && (
-              <div className="ui negative message">
-                <small>{intl.formatMessage(messages.counter_error)}</small>
-              </div>
-            )}
             {/* RESET BUTTON
             <Button
               onClick={() =>

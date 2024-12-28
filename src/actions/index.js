@@ -14,7 +14,7 @@ export function resetCounter({ path, value }) {
     type: RESET_COUNTER,
     request: {
       op: 'patch',
-      path: `${path}/@reset-counter`,
+      path: `${path}/@counter`,
       data: { counter_value: value },
     },
   };

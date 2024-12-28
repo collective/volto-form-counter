@@ -76,6 +76,15 @@ const CounterWidget = (props) => {
 
   // initialized form counter input
   useEffect(() => {
+    dispatch(
+      getCounterValue({
+        path: getBaseUrl(location?.pathname || ''),
+      }),
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
     if (counterValue) {
       setCounterInput(counterValue);
     }

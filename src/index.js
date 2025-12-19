@@ -14,7 +14,7 @@ const messages = defineMessages({
   counter_widget_check_description: {
     id: 'counter_widget_check_description',
     defaultMessage:
-      'Se attivo verrà assegnato un numero identificativo per ogni richiesta effettuata dal form. Se vuoi inserire il valore del contatore negli altri campi del blocco, utilizza la sintassi ${numero_progressivo_form_counter}.',
+      'Se attivo verrà assegnato un numero identificativo per ogni richiesta effettuata dal form. Se vuoi utilizzare il valore del contatore nel messaggio di conferma invio, utilizza la sintassi ${contatore_form_counter}.',
   },
 });
 

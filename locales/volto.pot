@@ -18,7 +18,7 @@ msgstr ""
 msgid "counter_widget_check"
 msgstr ""
 
-#. Default: "Se attivo verrà assegnato un numero identificativo per ogni richiesta effettuata dal form. Se vuoi inserire il valore del contatore negli altri campi del blocco, utilizza la sintassi ${numero_progressivo_form_counter}."
+#. Default: "Se attivo verrà assegnato un numero identificativo per ogni richiesta effettuata dal form. Se vuoi utilizzare il valore del contatore nel messaggio di conferma invio, utilizza la sintassi ${contatore_form_counter}."
 #: index
 msgid "counter_widget_check_description"
 msgstr ""

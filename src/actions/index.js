@@ -7,7 +7,7 @@ export const GET_COUNTER = 'GET_COUNTER';
  * resetCounter action
  * @module actions/resetCounter
  */
-export function resetCounter({ path, value }) {
+export function resetCounter({ path, value, block_id = null }) {
   // const pagePath = expandToBackendURL(path);
 
   return {
@@ -15,7 +15,7 @@ export function resetCounter({ path, value }) {
     request: {
       op: 'patch',
       path: `${path}/@counter`,
-      data: { counter_value: value },
+      data: { counter_value: value, block_id },
     },
   };
 }
@@ -25,14 +25,18 @@ export function resetCounter({ path, value }) {
  * @module actions/counter
  * Parameters: block_id (optional) — The identifier of the form block. The first available is being selected if not passed.
  */
-export function getCounterValue({ path }) {
+export function getCounterValue({ path, block_id = null }) {
   // const pagePath = expandToBackendURL(path);
+  let options = {
+    op: 'get',
+    path: `${path}/@counter`,
+  };
+  if (block_id) {
+    options.params = { block_id };
+  }
 
   return {
     type: GET_COUNTER,
-    request: {
-      op: 'get',
-      path: `${path}/@counter`,
-    },
+    request: options,
   };
 }

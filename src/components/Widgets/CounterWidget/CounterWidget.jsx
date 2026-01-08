@@ -41,9 +41,10 @@ const CounterWidget = (props) => {
   const location = useLocation();
   const dispatch = useDispatch();
 
+  const { block } = props;
   const resetCounterState = useSelector((state) => state.resetCounterState);
   const counterState = useSelector((state) => state.counterValueState);
-  const counterValue = counterState?.result?.counter_value ?? 0;
+  const counterValue = counterState?.result?.[block] ?? 0;
 
   const [showNotify, setShowNotify] = useState(false);
   const [notifyError, setNotifyError] = useState(false);
@@ -57,6 +58,7 @@ const CounterWidget = (props) => {
       dispatch(
         getCounterValue({
           path: getBaseUrl(location?.pathname || ''),
+          block_id: block,
         }),
       );
     }
@@ -79,6 +81,7 @@ const CounterWidget = (props) => {
     dispatch(
       getCounterValue({
         path: getBaseUrl(location?.pathname || ''),
+        block_id: block,
       }),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -115,6 +118,7 @@ const CounterWidget = (props) => {
               resetCounter({
                 path: getBaseUrl(location?.pathname || ''),
                 value: counterInput,
+                block_id: block,
               }),
             );
           }}
@@ -138,30 +142,6 @@ const CounterWidget = (props) => {
             <small>{intl.formatMessage(messages.counter_success)}</small>
           </div>
         )}
-
-        {/* {counterValue > 0 && (
-          <>
-            {/* RESET BUTTON
-            <Button
-              onClick={() =>
-                dispatch(
-                  resetCounter({
-                    path: getBaseUrl(location?.pathname || ''),
-                  }),
-                )
-              }
-              size="tiny"
-              compact
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-              }}
-            >
-              <Icon name={deleteSVG} size="1.5rem" />{' '}
-              {intl.formatMessage(messages.reset_label)}
-            </Button>
-          </>
-        )} */}
       </div>
     </Grid.Row>
   );
